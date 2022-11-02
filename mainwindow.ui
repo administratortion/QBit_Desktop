@@ -6,19 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
-    <height>466</height>
+    <width>861</width>
+    <height>442</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="topWindow">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout" columnstretch="2,10">
+     <layout class="QGridLayout" name="topGLayout" columnstretch="2,15">
       <item row="0" column="0">
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="topLeftVLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
         <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
@@ -104,32 +110,165 @@
        </layout>
       </item>
       <item row="0" column="1">
-       <widget class="QStackedWidget" name="stackedWidget">
-        <property name="currentIndex">
-         <number>0</number>
+       <widget class="QStackedWidget" name="topRightStack">
+        <property name="frameShape">
+         <enum>QFrame::WinPanel</enum>
         </property>
-        <widget class="QWidget" name="chat_page">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="topRight_Chat_page">
          <layout class="QGridLayout" name="gridLayout_8">
           <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout_7"/>
+           <layout class="QGridLayout" name="ChatGLayout"/>
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="server_page">
+        <widget class="QWidget" name="topRight_Server_page">
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout_4" columnstretch="1,5">
+           <layout class="QGridLayout" name="ServerGLayout" columnstretch="1,5">
             <item row="0" column="1">
-             <widget class="QStackedWidget" name="stackedWidget_2">
-              <property name="currentIndex">
-               <number>0</number>
+             <widget class="QStackedWidget" name="ServerRightStack">
+              <property name="frameShape">
+               <enum>QFrame::WinPanel</enum>
               </property>
-              <widget class="QWidget" name="page_3"/>
-              <widget class="QWidget" name="page_4"/>
+              <property name="currentIndex">
+               <number>4</number>
+              </property>
+              <widget class="QWidget" name="server_infoConfig_page">
+               <layout class="QGridLayout" name="gridLayout_10">
+                <item row="0" column="1">
+                 <layout class="QGridLayout" name="server_infoConfigGLayout">
+                  <item row="0" column="5">
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="4" rowspan="2">
+                   <widget class="QComboBox" name="comboBox_2"/>
+                  </item>
+                  <item row="0" column="0" rowspan="2">
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>服务器公网地址：</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" rowspan="2">
+                   <widget class="QComboBox" name="comboBox"/>
+                  </item>
+                  <item row="0" column="3" rowspan="2">
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>端口：</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="4">
+                   <spacer name="verticalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="server_load_page"/>
+              <widget class="QWidget" name="server_download_page"/>
+              <widget class="QWidget" name="server_others_page"/>
+              <widget class="QWidget" name="server_test_page">
+               <layout class="QGridLayout" name="gridLayout_13">
+                <item row="0" column="1">
+                 <layout class="QGridLayout" name="server_testGLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>测试（Ftp）：</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" rowspan="2">
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>测试（http）:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="lineEdit">
+                    <property name="placeholderText">
+                     <string>文件名</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" rowspan="2">
+                   <widget class="QLineEdit" name="lineEdit_2">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>网页地址</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4" rowspan="3">
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="2" rowspan="2" colspan="2">
+                   <widget class="QPushButton" name="pushButton_9">
+                    <property name="text">
+                     <string>测试</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QPushButton" name="pushButton_8">
+                    <property name="text">
+                     <string>选择文件并上传至服务器</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QListWidget" name="listWidget">
+             <widget class="QListWidget" name="ServerLeftList">
               <item>
                <property name="text">
                 <string>信息配置</string>
@@ -152,7 +291,7 @@
               </item>
               <item>
                <property name="text">
-                <string/>
+                <string>测试效果</string>
                </property>
               </item>
              </widget>
@@ -161,10 +300,35 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="project_page">
+        <widget class="QWidget" name="topRight_Help_page">
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="HelpGLayout">
+            <item row="0" column="0">
+             <widget class="QTabWidget" name="help_tab">
+              <property name="currentIndex">
+               <number>1</number>
+              </property>
+              <widget class="QWidget" name="qtHelpSource">
+               <attribute name="title">
+                <string>开发人员信息</string>
+               </attribute>
+              </widget>
+              <widget class="QWidget" name="personInfo">
+               <attribute name="title">
+                <string>Qt开发扩展信息</string>
+               </attribute>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="topRight_Project_page">
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="0" column="0">
-           <layout class="QGridLayout" name="gridLayout_5"/>
+           <layout class="QGridLayout" name="ProjectGLayout"/>
           </item>
          </layout>
         </widget>
@@ -179,7 +343,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>677</width>
+     <width>861</width>
      <height>22</height>
     </rect>
    </property>
@@ -187,5 +351,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>ServerLeftList</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>ServerRightStack</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
